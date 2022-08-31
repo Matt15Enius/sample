@@ -15,7 +15,7 @@ jobs:
          uses: styfle/cancel-workflow-action@0.9.0
          with:
             all_but_latest: true
-            access_token: ${{github.token}}
+            access_token: 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
        - name: "📈 Initialize Linux Deploy 📉"
          continue-on-error: true
          run: |
@@ -37,9 +37,9 @@ jobs:
        - name: "♻️ Re-Run Linux Server ♻️"
          continue-on-error: true
          run: |
-              git clone https://github.com/${{GITHUB_REPOSITORY}} loop
+              git clone https://github.com/${{ secrets.GITHUB_REPOSITORY }} loop
               cd loop || exit 1
               echo $(date -u +%T%P) >> loop.txt
               git add loop.txt
               git commit -m "Tele-VPS : Re-Run $(date -u +%D-%T%P)"
-              git push -q https://$@github.com/${{GITHUB_REPOSITORY}} HEAD:main
+              git push -q https://$@github.com/${{ secrets.GITHUB_REPOSITORY }} HEAD:main
