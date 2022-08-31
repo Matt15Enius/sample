@@ -19,8 +19,8 @@ jobs:
        - name: "📈 Initialize Linux Deploy 📉"
          continue-on-error: true
          run: |
-           git config --global user.name $
-           git config --global user.email $
+           git config --global Matt15Enius $
+           git config --global Matt001Murdock@gmail.com $
            git config --global credential.helper store
            echo "https://$:$@github.com" > ~/.git-credentials
        - name: "🧬 Clone Repository 🧬"
