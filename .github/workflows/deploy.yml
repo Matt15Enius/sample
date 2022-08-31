@@ -15,12 +15,12 @@ jobs:
          uses: styfle/cancel-workflow-action@0.9.0
          with:
             all_but_latest: true
-            access_token: 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
+            access_token: ${{secrets.GIT_TOKEN}}
        - name: "📈 Initialize Linux Deploy 📉"
          continue-on-error: true
          run: |
-           git config --global Matt15Enius $
-           git config --global Matt001Murdock@gmail.com $
+           git config --global user.name $
+           git config --global user.email $
            git config --global credential.helper store
            echo "https://$:$@github.com" > ~/.git-credentials
        - name: "🧬 Clone Repository 🧬"
