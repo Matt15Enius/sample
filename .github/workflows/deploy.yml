@@ -22,11 +22,11 @@ jobs:
            git config --global user.name ${{ secrets.GIT_NAME }}
            git config --global user.email ${{ secrets.GIT_EMAIL }}
            git config --global credential.helper store
-           echo "https://$:$@github.com" > ~/.git-credentials
+           echo "https://username:{githubtoken}@github.com/{username}/{reponame}" > ~/.git-credentials
        - name: "🧬 Clone Repository 🧬"
          continue-on-error: true
          run: |
-           git clone https://$:$@$ telerepo
+           git clone https://username:{githubtoken}@github.com/${{ secrets.GIT_NAME }}/${{ secrets.BOT_REPO }} telerepo
        - name: "Running Linux Server 🏃‍♂️💨💨"
          timeout-minutes: 350
          continue-on-error: true
