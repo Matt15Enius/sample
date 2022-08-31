@@ -26,7 +26,7 @@ jobs:
        - name: "🧬 Clone Repository 🧬"
          continue-on-error: true
          run: |
-           git clone https://github.com/Matt15Enius/Tele-LeechX telerepo
+           git clone https://github.com/Matt15Enius/sample telerepo
        - name: "Running Linux Server 🏃‍♂️💨💨"
          timeout-minutes: 350
          continue-on-error: true
