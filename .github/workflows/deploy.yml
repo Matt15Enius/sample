@@ -33,7 +33,7 @@ jobs:
          run: |
            cd telerepo
            docker build . -t tele-vps
-           docker run tele-vps
+           docker run --env CONFIG_FILE_URL=$ tele-vps
        - name: "♻️ Re-Run Linux Server ♻️"
          continue-on-error: true
          run: |
