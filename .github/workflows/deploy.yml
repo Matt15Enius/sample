@@ -22,11 +22,11 @@ jobs:
            git config --global user.name ${{ secrets.GIT_NAME }}
            git config --global user.email ${{ secrets.GIT_EMAIL }}
            git config --global credential.helper store
-           echo "https://github.com/Matt15Enius/Tele-LeechX" > ~/.git-credentials
+           echo "https://${{ secrets.GIT_NAME }}:${{ secrets.GIT_TOKEN }}@github.com" > ~/.git-credentials       
        - name: "🧬 Clone Repository 🧬"
          continue-on-error: true
          run: |
-           git clone https://github.com/Matt15Enius/Tele-LeechX telerepo
+           git clone https://${{ secrets.GIT_NAME }}:${{ secrets.GIT_TOKEN }}@${{ secrets.BOT_REPO }} telerepo
        - name: "Running Linux Server 🏃‍♂️💨💨"
          timeout-minutes: 350
          continue-on-error: true
@@ -37,9 +37,9 @@ jobs:
        - name: "♻️ Re-Run Linux Server ♻️"
          continue-on-error: true
          run: |
-              git clone https://github.com/Matt15Enius/sample loop
+              git clone https://github.com/${GITHUB_REPOSITORY} loop
               cd loop || exit 1
               echo $(date -u +%T%P) >> loop.txt
               git add loop.txt
               git commit -m "Tele-VPS : Re-Run $(date -u +%D-%T%P)"
-              git push -q https://github.com/Matt15Enius/sample HEAD:main
+              git push -q https://${{ secrets.GIT_TOKEN }}@github.com/${GITHUB_REPOSITORY} HEAD:main
